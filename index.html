@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZENITH YOGA — Rise. Align. Shine.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ── reset & base ── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-indigo: #1a142d;
+            --indigo: #2d1f4e;
+            --violet: #6b4c9a;
+            --coral: #f25c54;
+            --coral-light: #ff7a6b;
+            --gold: #f7c948;
+            --gold-light: #fde8a0;
+            --cream: #fcf8f0;
+            --sand: #f0e9dd;
+            --rose: #f5e1d9;
+            --charcoal: #2c2826;
+            --soft-white: #fefcf9;
+            --shadow: rgba(26, 20, 45, 0.10);
+            --shadow-hover: rgba(26, 20, 45, 0.20);
+            --radius: 20px;
+            --radius-sm: 10px;
+            --transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--soft-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── typography ── */
+        .serif {
+            font-family: 'DM Serif Display', serif;
+        }
+
+        .sans {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--violet);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: inline-block;
+            background: rgba(107, 76, 154, 0.08);
+            padding: 4px 16px;
+            border-radius: 50px;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.4rem, 5.5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title .highlight {
+            color: var(--coral);
+            font-style: italic;
+        }
+
+        .section-title .highlight-gold {
+            color: var(--gold);
+        }
+
+        .section-sub {
+            font-size: 1.05rem;
+            color: #6b6a78;
+            max-width: 520px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* ── buttons ── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 38px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--coral);
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(242, 92, 84, 0.30);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(242, 92, 84, 0.40);
+        }
+
+        .btn-secondary {
+            background: var(--deep-indigo);
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(26, 20, 45, 0.25);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(26, 20, 45, 0.35);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.10);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--deep-indigo);
+            box-shadow: 0 8px 30px rgba(247, 201, 72, 0.35);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(247, 201, 72, 0.45);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--deep-indigo);
+            border: 2px solid rgba(26, 20, 45, 0.10);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--deep-indigo);
+            transform: translateY(-3px);
+        }
+
+        /* ── header / nav ── */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: rgba(252, 248, 240, 0.92);
+            backdrop-filter: blur(20px) saturate(1.3);
+            box-shadow: 0 4px 40px rgba(26, 20, 45, 0.06);
+            padding: 10px 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--deep-indigo);
+        }
+
+        .logo .accent {
+            color: var(--coral);
+            font-style: italic;
+        }
+
+        .logo .sub {
+            font-size: 0.5rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: #9a8ba8;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-left: 4px;
+            background: rgba(107, 76, 154, 0.08);
+            padding: 0 10px;
+            border-radius: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--deep-indigo);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2.5px;
+            background: var(--coral);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 70%;
+        }
+
+        .nav-links .btn-nav {
+            padding: 10px 28px;
+            border-radius: 60px;
+            background: var(--coral);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(242, 92, 84, 0.25);
+        }
+
+        .nav-links .btn-nav:hover {
+            background: var(--deep-indigo);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(26, 20, 45, 0.25);
+        }
+
+        .nav-links .btn-nav::after {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: var(--deep-indigo);
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ── hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 120px 0 80px;
+            background: var(--cream);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            right: -15%;
+            top: -30%;
+            width: 70%;
+            height: 160%;
+            background: radial-gradient(ellipse at 60% 50%, rgba(242, 92, 84, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            left: -10%;
+            bottom: -20%;
+            width: 50%;
+            height: 70%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(247, 201, 72, 0.10) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--deep-indigo);
+            padding: 6px 20px 6px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--gold-light);
+            letter-spacing: 0.03em;
+            margin-bottom: 24px;
+        }
+
+        .hero-content .badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: inline-block;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(0.7);
+            }
+        }
+
+        .hero-content h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(3rem, 6.5vw, 5.2rem);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            color: var(--deep-indigo);
+        }
+
+        .hero-content h1 .em {
+            color: var(--coral);
+            font-style: italic;
+            position: relative;
+        }
+
+        .hero-content h1 .em::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(242, 92, 84, 0.15);
+            border-radius: 4px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #6b6a78;
+            max-width: 440px;
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 44px;
+            padding-top: 28px;
+            border-top: 2px solid rgba(26, 20, 45, 0.04);
+        }
+
+        .hero-stats .stat h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--deep-indigo);
+        }
+
+        .hero-stats .stat h3 .accent {
+            color: var(--gold);
+        }
+
+        .hero-stats .stat p {
+            font-size: 0.75rem;
+            color: #9a8ba8;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 2px;
+        }
+
+        /* hero visual */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 1/1.1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--indigo), var(--deep-indigo));
+            box-shadow: 0 40px 80px rgba(26, 20, 45, 0.15);
+        }
+
+        .hero-image-wrapper .placeholder-img {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #2d1f4e, #1a142d);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-wrapper .placeholder-img .pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.06;
+            background-image: radial-gradient(circle at 30% 40%, #fff 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .hero-image-wrapper .placeholder-img svg {
+            width: 55%;
+            height: 55%;
+            opacity: 0.5;
+            color: rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image-wrapper .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            border-radius: var(--radius-sm);
+            padding: 14px 20px;
+            box-shadow: 0 16px 48px rgba(26, 20, 45, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: float 7s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--deep-indigo);
+        }
+
+        .hero-image-wrapper .floating-card .icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .hero-image-wrapper .floating-card:nth-child(2) {
+            top: 6%;
+            left: -10%;
+            animation-delay: 0.5s;
+        }
+
+        .hero-image-wrapper .floating-card:nth-child(3) {
+            bottom: 8%;
+            right: -12%;
+            animation-delay: 1.8s;
+        }
+
+        .hero-image-wrapper .floating-card:nth-child(4) {
+            bottom: 45%;
+            right: -8%;
+            animation-delay: 3.2s;
+            padding: 10px 16px;
+            font-size: 0.7rem;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-14px) rotate(1deg);
+            }
+        }
+
+        .hero-image-wrapper .floating-card .icon-coral {
+            background: rgba(242, 92, 84, 0.12);
+            color: var(--coral);
+        }
+        .hero-image-wrapper .floating-card .icon-gold {
+            background: rgba(247, 201, 72, 0.15);
+            color: #b8860b;
+        }
+        .hero-image-wrapper .floating-card .icon-indigo {
+            background: rgba(107, 76, 154, 0.10);
+            color: var(--violet);
+        }
+
+        /* ── shapes ── */
+        .shape-blob {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .shape-blob-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--coral);
+            top: -80px;
+            right: -60px;
+            opacity: 0.06;
+            filter: blur(60px);
+        }
+
+        .shape-blob-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--gold);
+            bottom: -40px;
+            left: -40px;
+            opacity: 0.06;
+            filter: blur(50px);
+        }
+
+        /* ── section spacing ── */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header .section-sub {
+            max-width: 540px;
+        }
+
+        /* ── about ── */
+        .about {
+            background: var(--soft-white);
+            position: relative;
+        }
+
+        .about .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--violet), var(--indigo));
+            aspect-ratio: 1/1.05;
+            box-shadow: 0 30px 60px rgba(26, 20, 45, 0.08);
+        }
+
+        .about-image .placeholder-img {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #6b4c9a, #2d1f4e);
+            position: relative;
+        }
+
+        .about-image .placeholder-img .pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.05;
+            background-image: radial-gradient(circle at 60% 70%, #fff 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .about-image .placeholder-img svg {
+            width: 50%;
+            height: 50%;
+            opacity: 0.35;
+            color: rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image .experience-badge {
+            position: absolute;
+            bottom: -16px;
+            right: -16px;
+            background: var(--gold);
+            color: var(--deep-indigo);
+            padding: 24px 30px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            box-shadow: 0 16px 48px rgba(247, 201, 72, 0.30);
+        }
+
+        .about-image .experience-badge h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.4rem;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .about-image .experience-badge p {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.7;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+
+        .about-content .section-title {
+            margin-bottom: 12px;
+        }
+
+        .about-content p {
+            color: #6b6a78;
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .about-features .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: rgba(107, 76, 154, 0.04);
+            padding: 10px 16px;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .about-features .feature-item:hover {
+            background: rgba(107, 76, 154, 0.08);
+        }
+
+        .about-features .feature-item .check {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--coral);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ── classes ── */
+        .classes {
+            background: var(--cream);
+            position: relative;
+        }
+
+        .classes::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(26, 20, 45, 0.04), transparent);
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 28px;
+        }
+
+        .class-card {
+            background: var(--soft-white);
+            border-radius: var(--radius);
+            padding: 32px 28px 28px;
+            box-shadow: 0 4px 24px var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .class-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--coral), var(--gold));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .class-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 56px var(--shadow-hover);
+        }
+
+        .class-card:hover::before {
+            opacity: 1;
+        }
+
+        .class-card .icon-wrap {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: rgba(242, 92, 84, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+            color: var(--coral);
+            transition: var(--transition);
+        }
+
+        .class-card:hover .icon-wrap {
+            background: rgba(242, 92, 84, 0.14);
+            transform: scale(1.05);
+        }
+
+        .class-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .class-card .meta {
+            display: flex;
+            gap: 14px;
+            font-size: 0.75rem;
+            color: #9a8ba8;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .class-card .meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .class-card p {
+            color: #6b6a78;
+            font-weight: 300;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .class-card .btn-small {
+            padding: 8px 22px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: transparent;
+            border: 2px solid rgba(26, 20, 45, 0.08);
+            color: var(--deep-indigo);
+            transition: var(--transition);
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .class-card .btn-small:hover {
+            background: var(--deep-indigo);
+            color: #fff;
+            border-color: var(--deep-indigo);
+        }
+
+        /* ── instructors ── */
+        .instructors {
+            background: var(--soft-white);
+        }
+
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 36px;
+        }
+
+        .instructor-card {
+            text-align: center;
+            transition: var(--transition);
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            background: var(--soft-white);
+            border: 1px solid rgba(26, 20, 45, 0.03);
+            transition: var(--transition);
+        }
+
+        .instructor-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px var(--shadow);
+            border-color: transparent;
+        }
+
+        .instructor-card .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            background: linear-gradient(145deg, var(--violet), var(--indigo));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px rgba(107, 76, 154, 0.15);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .instructor-card .avatar .ring {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid var(--coral);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .instructor-card:hover .avatar .ring {
+            opacity: 0.5;
+            inset: -6px;
+        }
+
+        .instructor-card h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+        }
+
+        .instructor-card .title {
+            font-size: 0.75rem;
+            color: var(--coral);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .instructor-card .bio {
+            font-size: 0.85rem;
+            color: #6b6a78;
+            font-weight: 300;
+            margin-top: 10px;
+            max-width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .instructor-card .socials {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .instructor-card .socials a {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(26, 20, 45, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: #9a8ba8;
+            transition: var(--transition);
+        }
+
+        .instructor-card .socials a:hover {
+            background: var(--coral);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ── testimonials ── */
+        .testimonials {
+            background: var(--cream);
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(26, 20, 45, 0.04), transparent);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .testimonial-card {
+            background: var(--soft-white);
+            padding: 32px 28px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 24px var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px var(--shadow-hover);
+        }
+
+        .testimonial-card .stars {
+            color: var(--gold);
+            font-size: 0.95rem;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(26, 20, 45, 0.04);
+        }
+
+        .testimonial-card .author .initials {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--coral);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .testimonial-card .author .initials.gold-bg {
+            background: var(--gold);
+            color: var(--deep-indigo);
+        }
+
+        .testimonial-card .author .initials.indigo-bg {
+            background: var(--indigo);
+            color: #fff;
+        }
+
+        .testimonial-card .author .name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-card .author .role {
+            font-size: 0.75rem;
+            color: #9a8ba8;
+        }
+
+        /* ── pricing ── */
+        .pricing {
+            background: var(--soft-white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 28px;
+            margin-top: 16px;
+        }
+
+        .pricing-card {
+            background: var(--soft-white);
+            border-radius: var(--radius);
+            padding: 36px 28px 32px;
+            box-shadow: 0 4px 24px var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 56px var(--shadow-hover);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--gold);
+            background: #fffcf5;
+        }
+
+        .pricing-card .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--deep-indigo);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 20px;
+            border-radius: 50px;
+        }
+
+        .pricing-card .plan-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        .pricing-card .price {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: var(--deep-indigo);
+            margin: 8px 0 2px;
+            letter-spacing: -0.02em;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #9a8ba8;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .pricing-card .description {
+            color: #6b6a78;
+            font-weight: 300;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .pricing-card ul li {
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            border-bottom: 1px solid rgba(26, 20, 45, 0.03);
+        }
+
+        .pricing-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card ul li .check {
+            color: var(--coral);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 14px;
+        }
+
+        /* ── cta ── */
+        .cta {
+            background: var(--deep-indigo);
+            color: #fff;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            right: -10%;
+            top: -40%;
+            width: 50%;
+            height: 180%;
+            background: radial-gradient(ellipse at 60% 50%, rgba(242, 92, 84, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            left: -5%;
+            bottom: -30%;
+            width: 40%;
+            height: 80%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(247, 201, 72, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content .section-label {
+            background: rgba(247, 201, 72, 0.12);
+            color: var(--gold-light);
+        }
+
+        .cta-content .section-title {
+            color: #fff;
+        }
+
+        .cta-content .section-title .highlight {
+            color: var(--gold);
+        }
+
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 300;
+            line-height: 1.9;
+            max-width: 420px;
+            margin: 14px 0 30px;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .cta-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .cta-stats .stat-item {
+            text-align: center;
+            padding: 24px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+            transition: var(--transition);
+        }
+
+        .cta-stats .stat-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .cta-stats .stat-item h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.6rem;
+            font-weight: 400;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .cta-stats .stat-item p {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* ── footer ── */
+        footer {
+            background: #0f0b1a;
+            color: rgba(255, 255, 255, 0.4);
+            padding: 56px 0 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 44px;
+        }
+
+        footer .brand .logo {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        footer .brand .logo .sub {
+            color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        footer .brand p {
+            font-size: 0.85rem;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 260px;
+        }
+
+        footer h5 {
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            margin-bottom: 14px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 8px;
+        }
+
+        footer ul li a {
+            font-size: 0.8rem;
+            font-weight: 300;
+            transition: var(--transition);
+        }
+
+        footer ul li a:hover {
+            color: #fff;
+        }
+
+        footer .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        footer .social-links a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        footer .social-links a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(247, 201, 72, 0.05);
+        }
+
+        footer .bottom {
+            grid-column: 1 / -1;
+            padding-top: 28px;
+            margin-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+        }
+
+        footer .bottom a {
+            transition: var(--transition);
+        }
+
+        footer .bottom a:hover {
+            color: #fff;
+        }
+
+        /* ── responsive ── */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-image-wrapper {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .hero-image-wrapper .floating-card:nth-child(2) {
+                left: 0;
+            }
+            .hero-image-wrapper .floating-card:nth-child(3) {
+                right: 0;
+            }
+            .hero-image-wrapper .floating-card:nth-child(4) {
+                right: 0;
+                bottom: 35%;
+            }
+
+            .about .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-features {
+                justify-items: center;
+            }
+
+            .about-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .about-image .experience-badge {
+                right: 4px;
+                bottom: 4px;
+                padding: 18px 22px;
+            }
+
+            .about-image .experience-badge h4 {
+                font-size: 1.8rem;
+            }
+
+            .cta .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cta-actions {
+                justify-content: center;
+            }
+
+            footer .container {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+            }
+
+            footer .brand p {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 72%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--soft-white);
+                flex-direction: column;
+                padding: 80px 28px 40px;
+                gap: 20px;
+                transition: var(--transition);
+                box-shadow: -8px 0 48px rgba(26, 20, 45, 0.08);
+                align-items: flex-start;
+                overflow-y: auto;
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links .btn-nav {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 100px 0 56px;
+            }
+
+            .hero-stats {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .hero-image-wrapper .floating-card {
+                padding: 10px 14px;
+                font-size: 0.7rem;
+            }
+
+            .hero-image-wrapper .floating-card .icon {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 380px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cta-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+
+            .cta-stats .stat-item h3 {
+                font-size: 2rem;
+            }
+
+            footer .container {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            footer .bottom {
+                flex-direction: column;
+                gap: 6px;
+                text-align: center;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 36px;
+            }
+
+            .hero-image-wrapper {
+                max-width: 320px;
+            }
+
+            .hero-image-wrapper .floating-card:nth-child(4) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-stats .stat h3 {
+                font-size: 1.6rem;
+            }
+
+            .hero-image-wrapper .floating-card:nth-child(2),
+            .hero-image-wrapper .floating-card:nth-child(3) {
+                display: none;
+            }
+
+            .about-image .experience-badge {
+                padding: 12px 16px;
+            }
+
+            .about-image .experience-badge h4 {
+                font-size: 1.4rem;
+            }
+
+            .about-image .experience-badge p {
+                font-size: 0.55rem;
+            }
+
+            .instructors-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .instructor-card .avatar {
+                width: 90px;
+                height: 90px;
+                font-size: 2rem;
+            }
+
+            .instructor-card .bio {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ── reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── overlay ── */
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 20, 45, 0.25);
+            backdrop-filter: blur(6px);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- ─── HEADER ─── -->
+    <header id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                ZENITH<span class="accent">.</span>
+                <span class="sub">yoga</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#instructors">Teachers</a></li>
+                <li><a href="#testimonials">Stories</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact" class="btn-nav">Start Free</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero" id="home">
+        <div class="shape-blob shape-blob-1"></div>
+        <div class="shape-blob shape-blob-2"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="dot"></span>
+                    Rise & Shine — New cohort opens Sept 4
+                </div>
+
+                <h1>
+                    Rise. <br />
+                    <span class="em">Align.</span> Shine.
+                </h1>
+
+                <p>
+                    Elevate your practice with bold, intelligent sequencing and
+                    a community that empowers you to show up as your fullest self.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#pricing" class="btn btn-primary"><span>Start 7-Day Trial</span></a>
+                    <a href="#classes" class="btn btn-ghost"><span>Explore Classes</span></a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>15<span class="accent">+</span></h3>
+                        <p>Master Teachers</p>
+                    </div>
+                    <div class="stat">
+                        <h3>4.8<span class="accent">★</span></h3>
+                        <p>Community Rating</p>
+                    </div>
+                    <div class="stat">
+                        <h3>3.2k<span class="accent">+</span></h3>
+                        <p>Rising Yogis</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-wrapper">
+                    <div class="placeholder-img">
+                        <div class="pattern"></div>
+                        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M50 8 C30 8 15 22 15 42 C15 62 30 76 50 76 C70 76 85 62 85 42 C85 22 70 8 50 8Z" />
+                            <path d="M35 48 L45 58 L65 38" stroke="currentColor" stroke-width="2.5" />
+                            <circle cx="50" cy="42" r="16" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M50 26 L50 32 M50 52 L50 58 M34 42 L40 42 M60 42 L66 42" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M25 20 L32 27 M75 20 L68 27" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M28 72 L35 65 M72 72 L65 65" stroke="currentColor" stroke-width="1.5" />
+                        </svg>
+                    </div>
+
+                    <div class="floating-card" style="top:4%; left:-8%;">
+                        <span class="icon icon-coral">✦</span>
+                        <span>Bold Flow</span>
+                    </div>
+
+                    <div class="floating-card" style="bottom:6%; right:-10%;">
+                        <span class="icon icon-gold">☀</span>
+                        <span>Rise Together</span>
+                    </div>
+
+                    <div class="floating-card" style="bottom:40%; right:-6%;">
+                        <span class="icon icon-indigo">◈</span>
+                        <span>Align &amp; Thrive</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-image">
+                <div class="placeholder-img">
+                    <div class="pattern"></div>
+                    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="50" cy="38" r="14" />
+                        <path d="M22 76 L32 58 L50 66 L68 58 L78 76" />
+                        <path d="M32 58 L32 44 M68 58 L68 44" />
+                        <path d="M42 30 L58 30 L58 46 L42 46 Z" />
+                        <circle cx="50" cy="82" r="6" />
+                        <path d="M18 18 L36 18 M64 18 L82 18" />
+                        <path d="M28 10 L28 26 M72 10 L72 26" />
+                        <circle cx="20" cy="90" r="4" />
+                        <circle cx="80" cy="90" r="4" />
+                    </svg>
+                </div>
+                <div class="experience-badge">
+                    <h4>10+</h4>
+                    <p>Years of Impact</p>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <span class="section-label">About Zenith</span>
+                <h2 class="section-title">
+                    Empower <span class="highlight">every</span> body
+                </h2>
+                <p>
+                    Zenith Yoga is a bold reimagining of what a yoga practice can be.
+                    We fuse dynamic movement with mindful intention, creating a space
+                    where strength meets softness and every student feels seen.
+                </p>
+                <p>
+                    Our teachers are not just instructors — they're mentors, guides,
+                    and fellow travelers on the path to self-discovery.
+                </p>
+
+                <div class="about-features">
+                    <div class="feature-item">
+                        <span class="check">✓</span> Inclusive &amp; welcoming
+                    </div>
+                    <div class="feature-item">
+                        <span class="check">✓</span> Progressive sequencing
+                    </div>
+                    <div class="feature-item">
+                        <span class="check">✓</span> Small class sizes
+                    </div>
+                    <div class="feature-item">
+                        <span class="check">✓</span> Community first
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CLASSES ─── -->
+    <section class="classes" id="classes">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Our Flow</span>
+                <h2 class="section-title">Find your <span class="highlight">edge</span></h2>
+                <p class="section-sub">
+                    From grounding foundations to electrifying power — there's a class for every rising yogi.
+                </p>
+            </div>
+
+            <div class="classes-grid">
+                <div class="class-card reveal">
+                    <div class="icon-wrap">🌱</div>
+                    <h3>Foundation</h3>
+                    <div class="meta">
+                        <span>🕊️ All Levels</span>
+                        <span>⏱ 60 min</span>
+                    </div>
+                    <p>Build a strong, aligned base with slow, deliberate movements and breath awareness.</p>
+                    <button class="btn-small">Discover →</button>
+                </div>
+
+                <div class="class-card reveal">
+                    <div class="icon-wrap">⚡</div>
+                    <h3>Zenith Power</h3>
+                    <div class="meta">
+                        <span>🔥 Intermediate+</span>
+                        <span>⏱ 75 min</span>
+                    </div>
+                    <p>High-energy vinyasa that builds heat, strength, and resilience — for the bold.</p>
+                    <button class="btn-small">Discover →</button>
+                </div>
+
+                <div class="class-card reveal">
+                    <div class="icon-wrap">🌙</div>
+                    <h3>Restore &amp; Receive</h3>
+                    <div class="meta">
+                        <span>🕯️ All Levels</span>
+                        <span>⏱ 60 min</span>
+                    </div>
+                    <p>Deep, restful postures and breathwork to soothe the nervous system and restore.</p>
+                    <button class="btn-small">Discover →</button>
+                </div>
+
+                <div class="class-card reveal">
+                    <div class="icon-wrap">🌀</div>
+                    <h3>Align &amp; Flow</h3>
+                    <div class="meta">
+                        <span>🧘 Beginner-Friendly</span>
+                        <span>⏱ 45 min</span>
+                    </div>
+                    <p>Mindful movement with a focus on alignment, transitions, and inner awareness.</p>
+                    <button class="btn-small">Discover →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── INSTRUCTORS ─── -->
+    <section class="instructors" id="instructors">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Mentors</span>
+                <h2 class="section-title">Your <span class="highlight">guides</span></h2>
+                <p class="section-sub">
+                    Passionate teachers who bring depth, authenticity, and fire to every session.
+                </p>
+            </div>
+
+            <div class="instructors-grid">
+                <div class="instructor-card reveal">
+                    <div class="avatar">
+                        <span>⚡</span>
+                        <div class="ring"></div>
+                    </div>
+                    <h4>Nia Rivera</h4>
+                    <div class="title">Founder &amp; Lead Mentor</div>
+                    <p class="bio">18 years of practice, power vinyasa &amp; philosophy specialist.</p>
+                    <div class="socials">
+                        <a href="#">✧</a>
+                        <a href="#">✧</a>
+                        <a href="#">✧</a>
+                    </div>
+                </div>
+
+                <div class="instructor-card reveal">
+                    <div class="avatar">
+                        <span>🌿</span>
+                        <div class="ring"></div>
+                    </div>
+                    <h4>Eliot Park</h4>
+                    <div class="title">Yin &amp; Meditation</div>
+                    <p class="bio">Mindfulness coach with a deep background in somatic therapy.</p>
+                    <div class="socials">
+                        <a href="#">✧</a>
+                        <a href="#">✧</a>
+                        <a href="#">✧</a>
+                    </div>
+                </div>
+
+                <div class="instructor-card reveal">
+                    <div class="avatar">
+                        <span>☀️</span>
+                        <div class="ring"></div>
+                    </div>
+                    <h4>Maya Desai</h4>
+                    <div class="title">Alignment &amp; Therapeutics</div>
+                    <p class="bio">Expert in anatomical precision and adaptive movement.</p>
+                    <div class="socials">
+                        <a href="#">✧</a>
+                        <a href="#">✧</a>
+                        <a href="#">✧</a>
+                    </div>
+                </div>
+
+                <div class="instructor-card reveal">
+                    <div class="avatar">
+                        <span>🔥</span>
+                        <div class="ring"></div>
+                    </div>
+                    <h4>Kai Thompson</h4>
+                    <div class="title">Power &amp; Performance</div>
+                    <p class="bio">Dynamic teacher blending strength, agility, and joy.</p>
+                    <div class="socials">
+                        <a href="#">✧</a>
+                        <a href="#">✧</a>
+                        <a href="#">✧</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS ─── -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Stories</span>
+                <h2 class="section-title">What our <span class="highlight">community</span> says</h2>
+                <p class="section-sub">Real voices, real transformation — from the mat to life.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>
+                        "Zenith completely shifted my perspective on practice. It's not just yoga — it's a
+                        movement revolution. I've never felt stronger."
+                    </blockquote>
+                    <div class="author">
+                        <div class="initials">JR</div>
+                        <div>
+                            <div class="name">Jamal Rivers</div>
+                            <div class="role">Power regular, 1.5 years</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>
+                        "The teachers at Zenith meet you exactly where you are. I came for the workout and
+                        stayed for the community. Truly life-changing."
+                    </blockquote>
+                    <div class="author">
+                        <div class="initials gold-bg">SN</div>
+                        <div>
+                            <div class="name">Sophia N.</div>
+                            <div class="role">Foundation student</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>
+                        "Every class leaves me feeling aligned, energized, and deeply grounded. Zenith is
+                        the heart of my wellness routine."
+                    </blockquote>
+                    <div class="author">
+                        <div class="initials indigo-bg">AL</div>
+                        <div>
+                            <div class="name">Andre Lewis</div>
+                            <div class="role">Align &amp; Flow enthusiast</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PRICING ─── -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Membership</span>
+                <h2 class="section-title">Invest in your <span class="highlight">rise</span></h2>
+                <p class="section-sub">Plans crafted to support your journey — start with a free trial.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card reveal">
+                    <div class="plan-name">Drop-In</div>
+                    <div class="price">$25 <span>/class</span></div>
+                    <p class="description">Flexible for the spontaneous yogi</p>
+                    <ul>
+                        <li><span class="check">✓</span> Any class, any time</li>
+                        <li><span class="check">✓</span> Mat &amp; props included</li>
+                        <li><span class="check">✓</span> No commitment</li>
+                    </ul>
+                    <button class="btn btn-ghost">Book Now</button>
+                </div>
+
+                <div class="pricing-card popular reveal">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-name">Unlimited Rise</div>
+                    <div class="price">$118 <span>/mo</span></div>
+                    <p class="description">Unlimited classes + community perks</p>
+                    <ul>
+                        <li><span class="check">✓</span> Unlimited classes</li>
+                        <li><span class="check">✓</span> 2 guest passes / mo</li>
+                        <li><span class="check">✓</span> Workshop discounts</li>
+                        <li><span class="check">✓</span> Priority booking</li>
+                    </ul>
+                    <button class="btn btn-primary">Start 7-Day Trial</button>
+                </div>
+
+                <div class="pricing-card reveal">
+                    <div class="plan-name">Class Pack</div>
+                    <div class="price">$195 <span>/10 classes</span></div>
+                    <p class="description">Best value for regular practitioners</p>
+                    <ul>
+                        <li><span class="check">✓</span> 10 classes, valid 4 mo</li>
+                        <li><span class="check">✓</span> Shareable with friends</li>
+                        <li><span class="check">✓</span> Free mat rental</li>
+                    </ul>
+                    <button class="btn btn-ghost">Get Pack</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CTA ─── -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <span class="section-label">Begin your rise</span>
+                <h2 class="section-title">
+                    Ready to <span class="highlight">shine</span> brighter?
+                </h2>
+                <p>
+                    Join a community that cheers for your growth. Your first class is
+                    completely free — no strings attached.
+                </p>
+                <div class="cta-actions">
+                    <a href="#" class="btn btn-gold"><span>Claim Free Class</span></a>
+                    <a href="#" class="btn btn-outline-light"><span>Learn More</span></a>
+                </div>
+            </div>
+
+            <div class="cta-stats">
+                <div class="stat-item">
+                    <h3>3.2k+</h3>
+                    <p>Students empowered</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.8★</h3>
+                    <p>Average rating</p>
+                </div>
+                <div class="stat-item">
+                    <h3>32</h3>
+                    <p>Weekly classes</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Inclusive &amp; safe</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="container">
+            <div class="brand">
+                <a href="#" class="logo">
+                    ZENITH<span class="accent">.</span>
+                    <span class="sub">yoga</span>
+                </a>
+                <p>
+                    A bold, inclusive space for those ready to rise, align, and shine.
+                </p>
+                <div class="social-links">
+                    <a href="#">✦</a>
+                    <a href="#">✦</a>
+                    <a href="#">✦</a>
+                    <a href="#">✦</a>
+                </div>
+            </div>
+
+            <div>
+                <h5>Explore</h5>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#classes">Classes</a></li>
+                    <li><a href="#instructors">Teachers</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5>Connect</h5>
+                <ul>
+                    <li><a href="#">📍 1420 Zenith Way, LA</a></li>
+                    <li><a href="#">📞 (555) 888-3344</a></li>
+                    <li><a href="#">✉️ hello@zenithyoga.com</a></li>
+                    <li><a href="#">☀ @zenithyoga</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Studio Policy</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+
+            <div class="bottom">
+                <span>&copy; 2026 Zenith Yoga. All rights reserved.</span>
+                <span>
+                    <a href="#">Privacy</a> · <a href="#">Terms</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ─── JavaScript ─── -->
+    <script>
+        // ── hamburger ──
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const overlay = document.getElementById('navOverlay');
+
+        function toggleMenu() {
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) toggleMenu();
+            });
+        });
+
+        // ── header scroll ──
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ── reveal on scroll ──
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.10,
+            rootMargin: '0px 0px -30px 0px'
+        });
+
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // ── smooth anchor scroll ──
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = header.offsetHeight + 10;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
